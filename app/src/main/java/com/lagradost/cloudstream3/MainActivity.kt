@@ -1378,19 +1378,11 @@ class MainActivity : AppCompatActivity(), ColorPickerDialogListener, BiometricCa
                         ___DO_NOT_CALL_FROM_A_PLUGIN_loadAllOnlinePlugins(this@MainActivity)
                     }
 
-                    //Automatically download not existing plugins, using mode specified.
-                    /*val autoDownloadPlugin = AutoDownloadMode.getEnum(
-                        settingsManager.getInt(
-                            getString(R.string.auto_download_plugins_key),
-                            0
-                        )
-                    ) ?: AutoDownloadMode.Disable
-                    if (autoDownloadPlugin != AutoDownloadMode.Disable) {
-                        PluginManager.___DO_NOT_CALL_FROM_A_PLUGIN_downloadNotExistingPluginsAndLoad(
-                            this@MainActivity,
-                            autoDownloadPlugin
-                        )
-                    }*/
+                    // Flixy: automatically install every plugin of the admin-managed repository.
+                    PluginManager.___DO_NOT_CALL_FROM_A_PLUGIN_downloadNotExistingPluginsAndLoad(
+                        this@MainActivity,
+                        AutoDownloadMode.All
+                    )
                 }
 
                 ioSafe {

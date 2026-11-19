@@ -221,6 +221,8 @@ class SettingsFragment : BaseFragment<MainSettingsBinding>(
         }
 
         binding.apply {
+            // Flixy: plugins/repositories are managed by the admin, hide the Extensions entry.
+            settingsExtensions.visibility = android.view.View.GONE
             listOf(
                 settingsGeneral to R.id.action_navigation_global_to_navigation_settings_general,
                 settingsPlayer to R.id.action_navigation_global_to_navigation_settings_player,
